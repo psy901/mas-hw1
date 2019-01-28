@@ -4,17 +4,10 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import firebase from 'firebase';
-
+import config from './config.js'
 
 // Initialize Firebase
-var config = {
-  apiKey: "",
-  authDomain: "mas-hw.firebaseapp.com",
-  databaseURL: "https://mas-hw.firebaseio.com",
-  projectId: "mas-hw",
-  storageBucket: "mas-hw.appspot.com",
-  messagingSenderId: "1031804683655"
-};
+// const config = config.config;
 firebase.initializeApp(config);
 
 ReactDOM.render(<App />, document.getElementById('root'));
