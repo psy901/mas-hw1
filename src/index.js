@@ -8,7 +8,7 @@ import firebase from 'firebase';
 
 // Initialize Firebase
 var config = {
-  apiKey: "AIzaSyD0q4t4YzY97xm18lpE6usL3KPDOq04Bf4",
+  apiKey: "",
   authDomain: "mas-hw.firebaseapp.com",
   databaseURL: "https://mas-hw.firebaseio.com",
   projectId: "mas-hw",

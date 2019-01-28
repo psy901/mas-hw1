@@ -24,7 +24,6 @@ class App extends Component {
       username: this.state.username,
       email: this.state.email
     });
-    
   };
 
   handleChange = e => {
@@ -37,24 +36,29 @@ class App extends Component {
     // console.log('render')
     return (
       <div className="App">
-        <form onSubmit={this.handleSubmit}>
-          <label>Enter Username: </label>
-          <input
-            type="text"
-            name="username"
-            // value={this.state.username}
-            onChange={this.handleChange}
-          />
-          <br />
-          <label>Enter Email: </label>
-          <input
-            type="text"
-            name="email"
-            // value={this.state.email}
-            onChange={this.handleChange}
-          />
-          <br />
-          <button type="submit">Submit</button>
+        <h1>Sample user input</h1>
+        <form className="container" onSubmit={this.handleSubmit}>
+          <div className="form">
+            <label>Enter Username: </label>
+            <input
+              type="text"
+              name="username"
+              // value={this.state.username}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className="form">
+            <label>Enter Email: </label>
+            <input
+              type="text"
+              name="email"
+              // value={this.state.email}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className="form">
+            <button type="submit">Submit</button>
+          </div>
         </form>
       </div>
     );
