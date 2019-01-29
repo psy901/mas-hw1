@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import firebase from 'firebase';
+import { BrowserRouter as Router } from 'react-router-dom'
+import Route from 'react-router-dom/Route'
+
 
 const initialState = {
   username: '',
@@ -57,37 +60,56 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <h1>Sample user input</h1>
-        <form className="container" onSubmit={this.handleSubmit}>
-          <div className="form">
-            <label>Enter Username: </label>
-            <input
-              type="text"
-              name="username"
-              value={this.state.username}
-              onChange={this.handleChange}
-            />
-          </div>
-          <div className="form">
-            <label>Enter Email: </label>
-            <input
-              type="text"
-              name="email"
-              value={this.state.email}
-              onChange={this.handleChange}
-            />
-          </div>
-          <div className="form">
-            <button type="submit">Submit</button>
-          </div>
+      <Router>
+        <div className="App">
+
+          <Route path="/" exact render={
+            () => {
+              return (<div>
+                      <h1>Sample user input</h1>
+                      <form className="container" onSubmit={this.handleSubmit}>
+                        <div className="form">
+                          <label>Enter Username: </label>
+                          <input
+                            type="text"
+                            name="username"
+                            value={this.state.username}
+                            onChange={this.handleChange}
+                          />
+                        </div>
+                        <div className="form">
+                          <label>Enter Email: </label>
+                          <input
+                            type="text"
+                            name="email"
+                            value={this.state.email}
+                            onChange={this.handleChange}
+                          />
+                        </div>
+                        <div className="form">
+                          <button type="submit">Submit</button>
+                        </div>
+                        
+                        <div className="App">
+                          <p><b>User count: {this.state.userCount}</b></p>
+                        </div>
+                      </form>
+                      </div>
+                     );
+                  }
+          }/>
+
+          <Route path="/home" exact render={
+            () => {
+              return (<div>
+                      <h1>Welcome</h1>
+                      </div>
+                     );
+                  }
+          }/>
           
-          <div className="App">
-            <p><b>User count: {this.state.userCount}</b></p>
-          </div>
-          
-        </form>
-      </div>
+        </div>
+      </Router>
     );
   }
 }
