@@ -3,13 +3,15 @@ import logo from './logo.svg';
 import './App.css';
 import firebase from 'firebase';
 
+const initialState = {
+  username: '',
+  email: ''
+}
+
 class App extends Component {
   constructor() {
     super();
-    this.state = {
-      username: '',
-      email: ''
-    };
+    this.state = initialState;
   }
 
   handleSubmit = e => {
@@ -17,13 +19,14 @@ class App extends Component {
     const rootRef = firebase
       .database()
       .ref()
-      .child('speed');
+      .child('users');
 
     let newUser = rootRef.push();
     newUser.set({
       username: this.state.username,
       email: this.state.email
     });
+    this.setState(initialState);
   };
 
   handleChange = e => {
@@ -33,7 +36,6 @@ class App extends Component {
   };
 
   render() {
-    // console.log('render')
     return (
       <div className="App">
         <h1>Sample user input</h1>
@@ -43,7 +45,7 @@ class App extends Component {
             <input
               type="text"
               name="username"
-              // value={this.state.username}
+              value={this.state.username}
               onChange={this.handleChange}
             />
           </div>
@@ -52,7 +54,7 @@ class App extends Component {
             <input
               type="text"
               name="email"
-              // value={this.state.email}
+              value={this.state.email}
               onChange={this.handleChange}
             />
           </div>

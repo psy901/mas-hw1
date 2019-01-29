@@ -4,12 +4,12 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import firebase from 'firebase';
-import config from './config.js'
+import { config } from './config.js'
 
 // Initialize Firebase
 // const config = config.config;
+console.log(config)
 firebase.initializeApp(config);
-
 ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
