@@ -8,6 +8,9 @@ Install the latest version of [Node.js](https://nodejs.org/en/download/)
 
 ### How to run
 1. clone the package
+```
+git clone https://github.com/psy901/mas-hw1.git
+```
 2. install required packages
 ```
 npm install
