@@ -44,6 +44,9 @@ class App extends Component {
       this.setState(initialState);
       this.updateUserCounter();
     }
+    else {
+      alert("Fields cannot be empty");
+    }
   };
 
   handleChange = e => {
