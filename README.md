@@ -9,9 +9,9 @@ Install the latest version of [Node.js](https://nodejs.org/en/download/)
 ### How to run
 1. clone the package
 2. install required packages
-`npm install`
-`npm install react-router-dom --save`
-`npm install react-router-config --save`
+`npm install`  
+`npm install react-router-dom --save`  
+`npm install react-router-config --save`  
 
 3. start locally
 `npm start`
