@@ -5,7 +5,8 @@ import firebase from 'firebase';
 
 const initialState = {
   username: '',
-  email: ''
+  email: '',
+  userCount: 0
 }
 
 class App extends Component {
@@ -14,6 +15,19 @@ class App extends Component {
     this.state = initialState;
   }
 
+  componentDidMount() {
+    this.updateUserCounter()
+  }
+
+  updateUserCounter(){
+    const usersRef = firebase.database().ref().child('users');
+      usersRef.on('value', snap => {
+        this.setState({
+          userCount: snap.numChildren()
+        });
+    });
+  }
+  
   handleSubmit = e => {
     e.preventDefault();
     const rootRef = firebase
@@ -27,6 +41,7 @@ class App extends Component {
       email: this.state.email
     });
     this.setState(initialState);
+    this.updateUserCounter();
   };
 
   handleChange = e => {
@@ -61,6 +76,11 @@ class App extends Component {
           <div className="form">
             <button type="submit">Submit</button>
           </div>
+          
+          <div className="App">
+            <p><b>User count: {this.state.userCount}</b></p>
+          </div>
+          
         </form>
       </div>
     );
