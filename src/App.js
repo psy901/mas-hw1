@@ -34,14 +34,16 @@ class App extends Component {
       .database()
       .ref()
       .child('users');
-
-    let newUser = rootRef.push();
-    newUser.set({
-      username: this.state.username,
-      email: this.state.email
-    });
-    this.setState(initialState);
-    this.updateUserCounter();
+    
+    if (this.state.username != '' && this.state.email != '') {
+      let newUser = rootRef.push();
+      newUser.set({
+        username: this.state.username,
+        email: this.state.email
+      });
+      this.setState(initialState);
+      this.updateUserCounter();
+    }
   };
 
   handleChange = e => {
