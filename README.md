@@ -20,3 +20,8 @@ npm install
 ```
 npm start
 ```
+
+4. open the url
+```
+http://localhost:3000/
+```
